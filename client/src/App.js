@@ -26,27 +26,25 @@ class App extends Component {
       <div className='App'>
         {this.state.comics.map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
-            {/* <p>{comic.gsx$booktitle.$t}</p>
-            <p>{comic.gsx$_cokwr.$t}</p>
-            <p>{comic.gsx$qual.$t}</p>
-            <p>{comic.gsx$year.$t}</p>
-            <p>{comic.gsx$publisher.$t}</p>
-            <p>{comic.gsx$majordefects.$t}</p>
-            <p>{comic.gsx$sold.$t}</p>             */}
-
-            <p>{comic.gsx$item.$t}</p>
-            {comic.gsx$sold1link.$t != '' && (
-              <a href={comic.gsx$sold1link.$t}>
-                <p>Sold for: {comic.gsx$sold1.$t}</p>
-              </a>
-            )}
-            {comic.gsx$closetolink.$t != '' && (
-              <a href={comic.gsx$closetolink.$t}>
-                <p>Close to: {comic.gsx$closeto.$t}</p>
-              </a>
-            )}
-
-            {comic.gsx$notes.$t != '' && <p>Notes: {comic.gsx$notes.$t}</p>}
+            <h3>{comic.gsx$item.$t}</h3>
+            <div>
+              {comic.gsx$sold1link.$t != '' && (
+                <React.Fragment>
+                  <span>Sold for: </span>
+                  <span>
+                    <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
+                  </span>
+                </React.Fragment>
+              )}
+              {comic.gsx$closetolink.$t != '' && (
+                <a href={comic.gsx$closetolink.$t}>
+                  <p>Close to: ${comic.gsx$closeto.$t}</p>
+                </a>
+              )}
+              {comic.gsx$notes.$t != '' && (
+                <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
+              )}
+            </div>
 
             {comic.gsx$pic.$t.includes('drive.google') > 0 && (
               <iframe src={comic.gsx$pic.$t} width='50%'></iframe>
