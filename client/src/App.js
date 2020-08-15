@@ -24,6 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <h1>Our unsold stock</h1>
         {this.state.comics.map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
             <h3>{comic.gsx$item.$t}</h3>
@@ -37,9 +38,14 @@ class App extends Component {
                 </React.Fragment>
               )}
               {comic.gsx$closetolink.$t != '' && (
-                <a href={comic.gsx$closetolink.$t}>
-                  <p>Close to: ${comic.gsx$closeto.$t}</p>
-                </a>
+                <div>
+                  <span>Close to: </span>
+                  <span>
+                    <a href={comic.gsx$closetolink.$t}>
+                      ${comic.gsx$closeto.$t}
+                    </a>
+                  </span>
+                </div>
               )}
               {comic.gsx$notes.$t != '' && (
                 <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
