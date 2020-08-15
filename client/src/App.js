@@ -46,13 +46,10 @@ class App extends Component {
               </a>
             )}
 
-            {/* {(comic.gsx$notes.$t != '' ||
-              comic.gsx$notes.$t.indexOf('https://drive') !== -1) && (
-              <p>Notes: {comic.gsx$notes.$t}</p>
-            )} */}
+            {comic.gsx$notes.$t != '' && <p>Notes: {comic.gsx$notes.$t}</p>}
 
-            {comic.gsx$notes.$t.includes('drive.google') > 0 && (
-              <iframe src={comic.gsx$notes.$t} width='50%'></iframe>
+            {comic.gsx$pic.$t.includes('drive.google') > 0 && (
+              <iframe src={comic.gsx$pic.$t} width='50%'></iframe>
             )}
           </div>
         ))}
