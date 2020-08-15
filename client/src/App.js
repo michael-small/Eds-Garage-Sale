@@ -35,13 +35,25 @@ class App extends Component {
             <p>{comic.gsx$sold.$t}</p>             */}
 
             <p>{comic.gsx$item.$t}</p>
-            <a href={comic.gsx$sold1link.$t}>
-              <p>Sold for: {comic.gsx$sold1.$t}</p>
-            </a>
-            <a href={comic.gsx$closetolink.$t}>
-              <p>Close to: {comic.gsx$closeto.$t}</p>
-            </a>
-            <p>Notes: {comic.gsx$notes.$t}</p>
+            {comic.gsx$sold1link.$t != '' && (
+              <a href={comic.gsx$sold1link.$t}>
+                <p>Sold for: {comic.gsx$sold1.$t}</p>
+              </a>
+            )}
+            {comic.gsx$closetolink.$t != '' && (
+              <a href={comic.gsx$closetolink.$t}>
+                <p>Close to: {comic.gsx$closeto.$t}</p>
+              </a>
+            )}
+
+            {/* {(comic.gsx$notes.$t != '' ||
+              comic.gsx$notes.$t.indexOf('https://drive') !== -1) && (
+              <p>Notes: {comic.gsx$notes.$t}</p>
+            )} */}
+
+            {comic.gsx$notes.$t.includes('drive.google') > 0 && (
+              <iframe src={comic.gsx$notes.$t} width='50%'></iframe>
+            )}
           </div>
         ))}
       </div>

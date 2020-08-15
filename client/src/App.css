@@ -6,7 +6,7 @@
 .Comics {
   border: 2px solid black;
   margin: 0.5rem;
-  max-width: 40%;
+  max-width: 100%;
   display: inline-block;
   /* display: block;
   margin-left: auto;
