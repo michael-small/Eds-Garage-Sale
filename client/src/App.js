@@ -38,9 +38,6 @@ class App extends Component {
             <a href={comic.gsx$sold1link.$t}>
               <p>Sold for: {comic.gsx$sold1.$t}</p>
             </a>
-            <a href={comic.gsx$current1link.$t}>
-              <p>Current: {comic.gsx$current1.$t}</p>
-            </a>
             <a href={comic.gsx$closetolink.$t}>
               <p>Close to: {comic.gsx$closeto.$t}</p>
             </a>
