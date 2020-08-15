@@ -24,18 +24,29 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a className='App-link' href='/auth/google' rel='noopener noreferrer'>
-            Sign in with Google
-          </a>
-          {this.state.comics.map((comic, index) => (
-            <p key={comic.id.$t}>{comic.gsx$booktitle.$t}</p>
-          ))}
-        </header>
+        {this.state.comics.map((comic, index) => (
+          <div key={comic.id.$t} className='Comics'>
+            {/* <p>{comic.gsx$booktitle.$t}</p>
+            <p>{comic.gsx$_cokwr.$t}</p>
+            <p>{comic.gsx$qual.$t}</p>
+            <p>{comic.gsx$year.$t}</p>
+            <p>{comic.gsx$publisher.$t}</p>
+            <p>{comic.gsx$majordefects.$t}</p>
+            <p>{comic.gsx$sold.$t}</p>             */}
+
+            <p>{comic.gsx$item.$t}</p>
+            <a href={comic.gsx$sold1link.$t}>
+              <p>Sold for: {comic.gsx$sold1.$t}</p>
+            </a>
+            <a href={comic.gsx$current1link.$t}>
+              <p>Current: {comic.gsx$current1.$t}</p>
+            </a>
+            <a href={comic.gsx$closetolink.$t}>
+              <p>Close to: {comic.gsx$closeto.$t}</p>
+            </a>
+            <p>Notes: {comic.gsx$notes.$t}</p>
+          </div>
+        ))}
       </div>
     );
   }
