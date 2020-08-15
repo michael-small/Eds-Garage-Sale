@@ -28,36 +28,34 @@ class App extends Component {
         <p>Total Items: {this.state.comics.length}</p>
         {this.state.comics.map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
-            <p>{comic.gsx$item.$t}</p>
+            <h4>{comic.gsx$item.$t}</h4>
             <div className='ItemContent'>
               {comic.gsx$sold1link.$t != '' ? (
-                <React.Fragment>
+                <p>
                   <span>Sold for: </span>
                   <span>
                     <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
                   </span>
-                </React.Fragment>
+                </p>
               ) : (
-                <span>No recorded sale</span>
+                <p>No recorded sale</p>
               )}
               {comic.gsx$closetolink.$t != '' ? (
-                <div>
+                <p>
                   <span>Close to: </span>
                   <span>
                     <a href={comic.gsx$closetolink.$t}>
                       ${comic.gsx$closeto.$t}
                     </a>
                   </span>
-                </div>
+                </p>
               ) : (
-                <div>
-                  <span>No other listing</span>
-                </div>
+                <p>No other listing</p>
               )}
               {comic.gsx$notes.$t != '' ? (
                 <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
               ) : (
-                <br />
+                <p>No notes</p>
               )}
             </div>
 
