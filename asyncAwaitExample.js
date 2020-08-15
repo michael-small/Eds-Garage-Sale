@@ -10,11 +10,29 @@
 //     .then((json) => console.log(json));
 // }
 
-const fetchAlbums = async () => {
+// const fetchAlbums = async () => {
+//   //fetch returns promise
+//   const res = await fetch('http://rallycoding.herokuapp.com/api/music_albums');
+//   const json = await res.json();
+//   console.log(json);
+// };
+
+// fetchAlbums();
+
+const fetchSpreadsheet = async () => {
   //fetch returns promise
-  const res = await fetch('http://rallycoding.herokuapp.com/api/music_albums');
+  const res = await fetch(
+    'https://spreadsheets.google.com/feeds/list/1upupUIm2mZA7XGqRnWYsrGJtvaWiCafqSCBrY6aO8JU/1/public/full?alt=json'
+  );
   const json = await res.json();
-  console.log(json);
+
+  const entries = json.feed.entry;
+
+  console.log(entries);
+
+  for (i = 0; i < entries.length; i++) {
+    console.log(entries[i].gsx$year.$t);
+  }
 };
 
-fetchAlbums();
+fetchSpreadsheet();
