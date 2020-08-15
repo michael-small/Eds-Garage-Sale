@@ -25,19 +25,22 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>Our unsold stock</h1>
+        <p>Total Items: {this.state.comics.length}</p>
         {this.state.comics.map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
-            <h3>{comic.gsx$item.$t}</h3>
-            <div>
-              {comic.gsx$sold1link.$t != '' && (
+            <p>{comic.gsx$item.$t}</p>
+            <div className='ItemContent'>
+              {comic.gsx$sold1link.$t != '' ? (
                 <React.Fragment>
                   <span>Sold for: </span>
                   <span>
                     <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
                   </span>
                 </React.Fragment>
+              ) : (
+                <span>No recorded sale</span>
               )}
-              {comic.gsx$closetolink.$t != '' && (
+              {comic.gsx$closetolink.$t != '' ? (
                 <div>
                   <span>Close to: </span>
                   <span>
@@ -46,15 +49,29 @@ class App extends Component {
                     </a>
                   </span>
                 </div>
+              ) : (
+                <div>
+                  <span>No other listing</span>
+                </div>
               )}
-              {comic.gsx$notes.$t != '' && (
+              {comic.gsx$notes.$t != '' ? (
                 <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
+              ) : (
+                <br />
               )}
             </div>
 
-            {comic.gsx$pic.$t.includes('drive.google') > 0 && (
-              <iframe src={comic.gsx$pic.$t} width='50%'></iframe>
-            )}
+            <div className='ItemPicture'>
+              {comic.gsx$pic.$t.includes('drive.google') > 0 ? (
+                <iframe src={comic.gsx$pic.$t} width='50%'></iframe>
+              ) : (
+                <img
+                  src='https://via.placeholder.com/100x150'
+                  wdith='50%'
+                  class='placeholder'
+                ></img>
+              )}
+            </div>
           </div>
         ))}
       </div>
