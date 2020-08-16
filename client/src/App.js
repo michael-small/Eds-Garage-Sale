@@ -77,7 +77,30 @@ class App extends Component {
         </div>
         {filteredComics.reverse().map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
-            <h4>{comic.gsx$item.$t}</h4>
+            <h4>
+              {comic.gsx$item.$t}
+              {comic.gsx$currentsearch.$t !== '' && (
+                <span>
+                  <a
+                    href={comic.gsx$currentsearch.$t}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    {' '}
+                    🛒
+                  </a>
+                </span>
+              )}
+              {comic.gsx$soldsearch.$t !== '' && (
+                <span>
+                  <a
+                    href={comic.gsx$soldsearch.$t}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    💰
+                  </a>
+                </span>
+              )}
+            </h4>
             <div className='ItemContent'>
               {comic.gsx$sold1link.$t !== '' ? (
                 <p>
