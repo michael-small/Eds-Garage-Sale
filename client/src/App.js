@@ -22,6 +22,7 @@ class App extends Component {
         captionFontSize: '2rem',
       },
     },
+    search: '',
   };
 
   async componentDidMount() {
@@ -38,12 +39,31 @@ class App extends Component {
     console.log(this.state.comics);
   }
 
+  updateSearch(event) {
+    this.setState({ search: event.target.value.substr(0, 20) });
+  }
+
   render() {
+    let filteredComics = this.state.comics.filter((comic) => {
+      return (
+        comic.gsx$item.$t
+          .toLowerCase()
+          .indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
     return (
       <div className='App'>
         <h1>Our unsold stock</h1>
         <p>Total Items: {this.state.comics.length}</p>
-        {this.state.comics.reverse().map((comic, index) => (
+        <div>
+          <span>Search by name: </span>
+          <input
+            type='text'
+            value={this.state.search}
+            onChange={this.updateSearch.bind(this)}
+          ></input>
+        </div>
+        {filteredComics.reverse().map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
             <h4>{comic.gsx$item.$t}</h4>
             <div className='ItemContent'>
