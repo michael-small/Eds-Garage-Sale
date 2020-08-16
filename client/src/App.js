@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import { SRLWrapper } from 'simple-react-lightbox';
@@ -54,9 +53,22 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>Our Unsold Stock</h1>
-        <p>Total Items: {this.state.comics.length}</p>
         <div>
-          <span>Search by name: </span>
+          <h2>Total Items: {this.state.comics.length}</h2>
+          <p>
+            Items without sold price:{' '}
+            {this.state.comics.filter((x) => x.gsx$sold1.$t === '').length}
+          </p>
+          <p>
+            Items without pic:{' '}
+            {this.state.comics.filter((x) => x.gsx$pic.$t === '').length}
+          </p>
+        </div>
+
+        <div>
+          <span>
+            <b>Search by name: </b>
+          </span>
           <input
             type='text'
             value={this.state.search}
@@ -67,7 +79,7 @@ class App extends Component {
           <div key={comic.id.$t} className='Comics'>
             <h4>{comic.gsx$item.$t}</h4>
             <div className='ItemContent'>
-              {comic.gsx$sold1link.$t != '' ? (
+              {comic.gsx$sold1link.$t !== '' ? (
                 <p>
                   <span>Sold for: </span>
                   <span>
@@ -77,7 +89,7 @@ class App extends Component {
               ) : (
                 <p>No recorded sale</p>
               )}
-              {comic.gsx$closetolink.$t != '' ? (
+              {comic.gsx$closetolink.$t !== '' ? (
                 <p>
                   <span>Close to: </span>
                   <span>
@@ -89,7 +101,7 @@ class App extends Component {
               ) : (
                 <p>No other listing</p>
               )}
-              {comic.gsx$notes.$t != '' ? (
+              {comic.gsx$notes.$t !== '' ? (
                 <p className='Notes'>
                   Notes: <i>{comic.gsx$notes.$t}</i>
                 </p>
