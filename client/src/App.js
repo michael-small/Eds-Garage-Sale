@@ -124,7 +124,7 @@ class App extends Component {
             <SimpleReactLightbox>
               <SRLWrapper options={this.state.options}>
                 <div className='ItemPicture'>
-                  {comic.gsx$pic.$t.includes('googleusercontent') > 0 ? (
+                  {comic.gsx$pic.$t.includes('google') > 0 ? (
                     <img
                       src={comic.gsx$pic.$t}
                       width='200px'
