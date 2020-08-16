@@ -38,42 +38,41 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <SimpleReactLightbox>
-          <h1>Our unsold stock</h1>
-          <p>Total Items: {this.state.comics.length}</p>
-          {this.state.comics.map((comic, index) => (
-            <div key={comic.id.$t} className='Comics'>
-              <h4>{comic.gsx$item.$t}</h4>
-              <div className='ItemContent'>
-                {comic.gsx$sold1link.$t != '' ? (
-                  <p>
-                    <span>Sold for: </span>
-                    <span>
-                      <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
-                    </span>
-                  </p>
-                ) : (
-                  <p>No recorded sale</p>
-                )}
-                {comic.gsx$closetolink.$t != '' ? (
-                  <p>
-                    <span>Close to: </span>
-                    <span>
-                      <a href={comic.gsx$closetolink.$t}>
-                        ${comic.gsx$closeto.$t}
-                      </a>
-                    </span>
-                  </p>
-                ) : (
-                  <p>No other listing</p>
-                )}
-                {comic.gsx$notes.$t != '' ? (
-                  <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
-                ) : (
-                  <p>No notes</p>
-                )}
-              </div>
-
+        <h1>Our unsold stock</h1>
+        <p>Total Items: {this.state.comics.length}</p>
+        {this.state.comics.map((comic, index) => (
+          <div key={comic.id.$t} className='Comics'>
+            <h4>{comic.gsx$item.$t}</h4>
+            <div className='ItemContent'>
+              {comic.gsx$sold1link.$t != '' ? (
+                <p>
+                  <span>Sold for: </span>
+                  <span>
+                    <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
+                  </span>
+                </p>
+              ) : (
+                <p>No recorded sale</p>
+              )}
+              {comic.gsx$closetolink.$t != '' ? (
+                <p>
+                  <span>Close to: </span>
+                  <span>
+                    <a href={comic.gsx$closetolink.$t}>
+                      ${comic.gsx$closeto.$t}
+                    </a>
+                  </span>
+                </p>
+              ) : (
+                <p>No other listing</p>
+              )}
+              {comic.gsx$notes.$t != '' ? (
+                <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
+              ) : (
+                <p>No notes</p>
+              )}
+            </div>
+            <SimpleReactLightbox>
               <SRLWrapper options={this.state.options}>
                 <div className='ItemPicture'>
                   {comic.gsx$pic.$t.includes('googleusercontent') > 0 ? (
@@ -93,9 +92,9 @@ class App extends Component {
                   )}
                 </div>
               </SRLWrapper>
-            </div>
-          ))}
-        </SimpleReactLightbox>
+            </SimpleReactLightbox>
+          </div>
+        ))}
       </div>
     );
   }
