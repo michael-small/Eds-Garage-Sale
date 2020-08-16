@@ -81,7 +81,9 @@ class App extends Component {
             <div className='ItemContent'>
               {comic.gsx$sold1link.$t !== '' ? (
                 <p>
-                  <span>Sold for: </span>
+                  <span>
+                    <b>Sold for: </b>
+                  </span>
                   <span>
                     <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
                     {comic.gsx$sold2link.$t !== '' && (
@@ -95,11 +97,15 @@ class App extends Component {
                   </span>
                 </p>
               ) : (
-                <p>No recorded sale</p>
+                <p>
+                  <b>No recorded sale</b>
+                </p>
               )}
               {comic.gsx$current1.$t !== '' ? (
                 <p>
-                  <span>Current listing: </span>
+                  <span>
+                    <b>Current listing: </b>
+                  </span>
                   <span>
                     <a href={comic.gsx$current1link.$t}>
                       ${comic.gsx$current1.$t}
@@ -107,11 +113,15 @@ class App extends Component {
                   </span>
                 </p>
               ) : (
-                <p>No current listings</p>
+                <p>
+                  <b>No current listings</b>
+                </p>
               )}
               {comic.gsx$closetolink.$t !== '' ? (
                 <p>
-                  <span>Close to: </span>
+                  <span>
+                    <b>Close to: </b>
+                  </span>
                   <span>
                     <a href={comic.gsx$closetolink.$t}>
                       ${comic.gsx$closeto.$t}
@@ -119,14 +129,19 @@ class App extends Component {
                   </span>
                 </p>
               ) : (
-                <p>No "other" listing</p>
+                <p>
+                  <b>No "other" listing</b>
+                </p>
               )}
               {comic.gsx$notes.$t !== '' ? (
                 <p className='Notes'>
-                  Notes: <i>{comic.gsx$notes.$t}</i>
+                  <b>Notes: </b>
+                  <i>{comic.gsx$notes.$t}</i>
                 </p>
               ) : (
-                <p>No notes</p>
+                <p>
+                  <b>No notes</b>
+                </p>
               )}
             </div>
             <SimpleReactLightbox>
