@@ -18,6 +18,9 @@ class App extends Component {
       thumbnails: {
         showThumbnails: false,
       },
+      caption: {
+        captionFontSize: '2rem',
+      },
     },
   };
 
@@ -87,7 +90,7 @@ class App extends Component {
                       src='https://via.placeholder.com/200x300'
                       wdith='50%'
                       class='placeholder'
-                      alt='Needs an image'
+                      alt={comic.gsx$item.$t}
                     ></img>
                   )}
                 </div>
