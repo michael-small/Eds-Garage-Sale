@@ -53,7 +53,7 @@ class App extends Component {
     });
     return (
       <div className='App'>
-        <h1>Our unsold stock</h1>
+        <h1>Our Unsold Stock</h1>
         <p>Total Items: {this.state.comics.length}</p>
         <div>
           <span>Search by name: </span>
@@ -111,7 +111,6 @@ class App extends Component {
                     <img
                       src='https://via.placeholder.com/200x300'
                       wdith='50%'
-                      class='placeholder'
                       alt={comic.gsx$item.$t}
                     ></img>
                   )}
