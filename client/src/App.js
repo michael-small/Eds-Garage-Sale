@@ -89,6 +89,18 @@ class App extends Component {
               ) : (
                 <p>No recorded sale</p>
               )}
+              {comic.gsx$current1.$t !== '' ? (
+                <p>
+                  <span>Current listing: </span>
+                  <span>
+                    <a href={comic.gsx$current1link.$t}>
+                      ${comic.gsx$current1.$t}
+                    </a>
+                  </span>
+                </p>
+              ) : (
+                <p>No current listings</p>
+              )}
               {comic.gsx$closetolink.$t !== '' ? (
                 <p>
                   <span>Close to: </span>
@@ -99,7 +111,7 @@ class App extends Component {
                   </span>
                 </p>
               ) : (
-                <p>No other listing</p>
+                <p>No "other" listing</p>
               )}
               {comic.gsx$notes.$t !== '' ? (
                 <p className='Notes'>
