@@ -84,6 +84,14 @@ class App extends Component {
                   <span>Sold for: </span>
                   <span>
                     <a href={comic.gsx$sold1link.$t}>${comic.gsx$sold1.$t}</a>
+                    {comic.gsx$sold2link.$t !== '' && (
+                      <span>
+                        <span>, </span>
+                        <a href={comic.gsx$sold2link.$t}>
+                          ${comic.gsx$sold2.$t}
+                        </a>
+                      </span>
+                    )}
                   </span>
                 </p>
               ) : (
