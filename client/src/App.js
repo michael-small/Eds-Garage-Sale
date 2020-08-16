@@ -43,7 +43,7 @@ class App extends Component {
       <div className='App'>
         <h1>Our unsold stock</h1>
         <p>Total Items: {this.state.comics.length}</p>
-        {this.state.comics.map((comic, index) => (
+        {this.state.comics.reverse().map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
             <h4>{comic.gsx$item.$t}</h4>
             <div className='ItemContent'>
@@ -70,7 +70,9 @@ class App extends Component {
                 <p>No other listing</p>
               )}
               {comic.gsx$notes.$t != '' ? (
-                <p className='Notes'>Notes: {comic.gsx$notes.$t}</p>
+                <p className='Notes'>
+                  Notes: <i>{comic.gsx$notes.$t}</i>
+                </p>
               ) : (
                 <p>No notes</p>
               )}
