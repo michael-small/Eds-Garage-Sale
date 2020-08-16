@@ -19,20 +19,33 @@
 
 // fetchAlbums();
 
-const fetchSpreadsheet = async () => {
-  //fetch returns promise
-  const res = await fetch(
-    'https://spreadsheets.google.com/feeds/list/1upupUIm2mZA7XGqRnWYsrGJtvaWiCafqSCBrY6aO8JU/1/public/full?alt=json'
-  );
-  const json = await res.json();
+// const fetchSpreadsheet = async () => {
+//   //fetch returns promise
+//   const res = await fetch(
+//     'https://spreadsheets.google.com/feeds/list/1upupUIm2mZA7XGqRnWYsrGJtvaWiCafqSCBrY6aO8JU/1/public/full?alt=json'
+//   );
+//   const json = await res.json();
 
-  const entries = json.feed.entry;
+//   const entries = json.feed.entry;
 
-  console.log(entries);
+//   console.log(entries);
 
-  for (i = 0; i < entries.length; i++) {
-    console.log(entries[i].gsx$year.$t);
-  }
-};
+//   for (i = 0; i < entries.length; i++) {
+//     console.log(entries[i].gsx$year.$t);
+//   }
+// };
 
-fetchSpreadsheet();
+// fetchSpreadsheet();
+
+// const fetchEbayListing = async () => {
+//   //fetch returns promise
+//   const res = await fetch(
+//     '
+//     https://api.ebay.com/buy/browse/v1/item_summary/search?q=drone&limit=3'
+//   );
+//   const json = await res.json();
+
+//   console.log(json);
+// };
+
+// fetchEbayListing();
