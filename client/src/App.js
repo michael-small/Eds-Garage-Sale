@@ -74,6 +74,12 @@ class App extends Component {
             value={this.state.search}
             onChange={this.updateSearch.bind(this)}
           ></input>
+          <button
+            onClick={() => this.setState({ search: '' })}
+            style={{ color: 'red' }}
+          >
+            X
+          </button>
         </div>
         {filteredComics.reverse().map((comic, index) => (
           <div key={comic.id.$t} className='Comics'>
