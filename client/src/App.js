@@ -52,11 +52,12 @@ class App extends Component {
           .indexOf(this.state.search.toLowerCase()) !== -1
       );
     });
+
     return (
       <Aux>
         <Nav />
         <Search />
-        {/* <Cockpit></Cockpit> */}
+        <Cockpit></Cockpit>
       </Aux>
     );
   }
