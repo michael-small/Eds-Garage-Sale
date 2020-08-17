@@ -5,10 +5,6 @@ class Search extends Component {
     super(props);
   }
 
-  updateSearch(event) {
-    this.setState({ search: event.target.value.substr(0, 20) });
-  }
-
   render() {
     return (
       <div>
@@ -18,7 +14,7 @@ class Search extends Component {
         <input
           type='text'
           value={this.props.search}
-          onChange={this.updateSearch.bind(this)}
+          onChange={this.props.updateSearch.bind(this)}
         ></input>
         <button
           onClick={() => this.props.search.setState({ search: '' })}

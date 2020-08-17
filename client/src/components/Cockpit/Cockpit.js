@@ -7,17 +7,18 @@ class Cockpit extends Component {
       <div>
         <h1>Our Unsold Stock</h1>
         <div>
-          <h2>Total Items: {this.state.comics.length}</h2>
+          <h2>Total Items: {this.props.comics.length}</h2>
           <p>
             Items without sold price:{' '}
-            {this.state.comics.filter((x) => x.gsx$sold1.$t === '').length}
+            {this.props.comics.filter((x) => x.gsx$sold1.$t === '').length}
           </p>
           <p>
             Items without pic:{' '}
-            {this.state.comics.filter((x) => x.gsx$pic.$t === '').length}
+            {this.props.comics.filter((x) => x.gsx$pic.$t === '').length}
           </p>
         </div>
-        <Listings />
+        <Listings comics={this.props.comics} search={this.props.search} />
+        {console.log(this.props.comics)}
       </div>
     );
   }

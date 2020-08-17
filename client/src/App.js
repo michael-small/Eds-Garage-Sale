@@ -19,23 +19,18 @@ class App extends Component {
     const json = await res.json();
     const entries = json.feed.entry;
     this.setState({ comics: entries });
-    console.log(this.state.comics);
+  }
+
+  updateSearch(event) {
+    this.setState({ search: event.target.value.substr(0, 20) });
   }
 
   render() {
-    let filteredComics = this.state.comics.filter((comic) => {
-      return (
-        comic.gsx$item.$t
-          .toLowerCase()
-          .indexOf(this.state.search.toLowerCase()) !== -1
-      );
-    });
-
     return (
       <Aux>
         <Nav />
-        <Search search={this.state.search} />
-        <Cockpit></Cockpit>
+        <Search search={this.state.search} updateSearch={this.updateSearch} />
+        <Cockpit comics={this.state.comics} search={this.state.search} />
       </Aux>
     );
   }
