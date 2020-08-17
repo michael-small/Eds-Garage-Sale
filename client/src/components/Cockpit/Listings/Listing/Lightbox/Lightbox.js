@@ -3,6 +3,23 @@ import SimpleReactLightbox from 'simple-react-lightbox';
 import { SRLWrapper } from 'simple-react-lightbox';
 
 class Lightbox extends Component {
+  state = {
+    options: {
+      buttons: {
+        showDownloadButton: false,
+        showNextButton: false,
+        showPrevButton: false,
+        showThumbnailsButton: false,
+        showAutoplayButton: false,
+      },
+      thumbnails: {
+        showThumbnails: false,
+      },
+      caption: {
+        captionFontSize: '2rem',
+      },
+    },
+  };
   render() {
     return (
       <SimpleReactLightbox>
