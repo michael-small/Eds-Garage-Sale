@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Cockpit from './Components/Cockpit/Cockpit';
+import Cockpit from './components/Cockpit/Cockpit';
+import Nav from './components/Nav/Nav';
+import Search from './components/Search/Search';
+import Aux from './hoc/Aux';
 import './App.css';
-import SimpleReactLightbox from 'simple-react-lightbox';
-import { SRLWrapper } from 'simple-react-lightbox';
 
 class App extends Component {
   state = {
@@ -52,9 +53,11 @@ class App extends Component {
       );
     });
     return (
-      <div className='App'>
-        <Cockpit></Cockpit>
-      </div>
+      <Aux>
+        <Nav />
+        <Search />
+        {/* <Cockpit></Cockpit> */}
+      </Aux>
     );
   }
 }
