@@ -7,12 +7,12 @@ class Listing extends Component {
   render() {
     return (
       <div key={this.props.keyVal} className='Comics'>
+        <Title
+          item={this.props.listing.gsx$item.$t}
+          currentSearch={this.props.listing.gsx$currentsearch.$t}
+          soldSearch={this.props.listing.gsx$soldsearch.$t}
+        />
         <div className='ItemContent'>
-          <Title
-            item={this.props.listing.gsx$item.$t}
-            currentSearch={this.props.listing.gsx$currentsearch.$t}
-            soldSearch={this.props.listing.gsx$soldsearch.$t}
-          />
           <Aux>
             {this.props.listing.gsx$sold1link.$t !== '' ? (
               <p>

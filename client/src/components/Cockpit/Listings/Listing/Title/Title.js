@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import './Title.css';
 
 class Title extends Component {
   render() {
     return (
-      <h4>
+      <h4 className='Title'>
         {this.props.item}
         {this.props.currentSearch !== '' && (
           <span>
             <a
-              href={this.props.currentsearch}
+              href={this.props.currentSearch}
               style={{ textDecoration: 'none' }}
             >
               {' '}
