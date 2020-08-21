@@ -90,12 +90,11 @@ class Listing extends Component {
               </p>
             )}
           </Aux>
-
-          <Lightbox
-            pic={this.props.listing.gsx$pic.$t}
-            itemTitle={this.props.listing.gsx$item.$t}
-          />
         </div>
+        <Lightbox
+          pic={this.props.listing.gsx$pic.$t}
+          itemTitle={this.props.listing.gsx$item.$t}
+        />
       </div>
     );
   }
