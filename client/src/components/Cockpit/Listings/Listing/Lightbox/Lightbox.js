@@ -25,18 +25,18 @@ class Lightbox extends Component {
       <SimpleReactLightbox>
         <SRLWrapper options={this.state.options}>
           <div className='ItemPicture'>
-            {comic.gsx$pic.$t.includes('google') > 0 ? (
+            {this.props.pic.includes('google') > 0 ? (
               <img
-                src={comic.gsx$pic.$t}
+                src={this.props.pic}
                 width='200px'
                 height='300px'
-                alt={comic.gsx$item.$t}
+                alt={this.props.itemTitle}
               ></img>
             ) : (
               <img
                 src='https://via.placeholder.com/200x300'
                 wdith='50%'
-                alt={comic.gsx$item.$t}
+                alt={this.props.itemTitle}
               ></img>
             )}
           </div>

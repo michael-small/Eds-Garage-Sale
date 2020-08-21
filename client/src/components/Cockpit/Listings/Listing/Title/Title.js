@@ -4,11 +4,11 @@ class Title extends Component {
   render() {
     return (
       <h4>
-        {comic.gsx$item.$t}
-        {comic.gsx$currentsearch.$t !== '' && (
+        {this.props.item}
+        {this.props.currentSearch !== '' && (
           <span>
             <a
-              href={comic.gsx$currentsearch.$t}
+              href={this.props.currentsearch}
               style={{ textDecoration: 'none' }}
             >
               {' '}
@@ -16,12 +16,9 @@ class Title extends Component {
             </a>
           </span>
         )}
-        {comic.gsx$soldsearch.$t !== '' && (
+        {this.props.soldSearch !== '' && (
           <span>
-            <a
-              href={comic.gsx$soldsearch.$t}
-              style={{ textDecoration: 'none' }}
-            >
+            <a href={this.props.soldSearch} style={{ textDecoration: 'none' }}>
               💰
             </a>
           </span>

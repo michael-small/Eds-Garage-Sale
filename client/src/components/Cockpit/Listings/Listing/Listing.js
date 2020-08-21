@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import Aux from '../../../../hoc/Aux';
+import Title from './Title/Title';
+import Lightbox from './Lightbox/Lightbox';
+
 class Listing extends Component {
   render() {
     return (
       <div key={this.props.keyVal} className='Comics'>
         <div className='ItemContent'>
+          <Title
+            item={this.props.listing.gsx$item.$t}
+            currentSearch={this.props.listing.gsx$currentsearch.$t}
+            soldSearch={this.props.listing.gsx$soldsearch.$t}
+          />
           <Aux>
             {this.props.listing.gsx$sold1link.$t !== '' ? (
               <p>
@@ -82,6 +90,11 @@ class Listing extends Component {
               </p>
             )}
           </Aux>
+
+          <Lightbox
+            pic={this.props.listing.gsx$pic.$t}
+            itemTitle={this.props.listing.gsx$item.$t}
+          />
         </div>
       </div>
     );
