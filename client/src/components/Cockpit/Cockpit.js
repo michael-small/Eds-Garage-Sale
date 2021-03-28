@@ -18,9 +18,7 @@ export default function Cockpit(props) {
 					{props.comics.filter((x) => x.gsx$pic.$t === '').length}
 				</p>
 			</div>
-			<Search
-			// onSearchChange={this.onSearchChange}
-			/>
+			<Search search={props.search} updateSearch={props.updateSearch} />
 			<Listings comics={props.comics} search={props.search} />{' '}
 		</div>
 	);

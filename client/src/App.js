@@ -29,13 +29,10 @@ class App extends Component {
 		return (
 			<Aux>
 				<Nav />
-				<Search
-					search={this.state.search}
-					updateSearch={this.updateSearch}
-				/>
 				<Cockpit
 					comics={this.state.comics}
 					search={this.state.search}
+					updateSearch={this.updateSearch.bind(this)}
 				/>
 			</Aux>
 		);
