@@ -19,7 +19,7 @@ class Listings extends Component {
 		return (
 			<Aux>
 				{filteredComics.reverse().map((comic, index) => (
-					<Listing listing={comic} keyVal={comic.id.$t} />
+					<Listing listing={comic} keyVal={comic.id.$t} key={index} />
 				))}
 			</Aux>
 		);
