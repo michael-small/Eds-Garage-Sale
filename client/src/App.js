@@ -1,39 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Cockpit from './components/Cockpit/Cockpit';
 import Aux from './hoc/Aux';
 import './App.css';
+import { gql, useQuery } from '@apollo/client';
 
-class App extends Component {
-	state = {
-		comics: [],
-		search: '',
+const GET_ANTIQUES = gql`
+	query GetAllAntiques {
+		products {
+			id
+			price
+			name
+			photo {
+				url
+			}
+		}
+	}
+`;
+
+export default function App() {
+	const updateSearch = (event) => {
+		setSearch({ search: event.target.value.substr(0, 20) });
 	};
 
-	async componentDidMount() {
-		//fetch returns promise
-		const res = await fetch(
-			'https://spreadsheets.google.com/feeds/list/1upupUIm2mZA7XGqRnWYsrGJtvaWiCafqSCBrY6aO8JU/1/public/full?alt=json'
-		);
-		const json = await res.json();
-		const entries = json.feed.entry;
-		this.setState({ comics: entries });
-	}
+	const { loading, error, data } = useQuery(GET_ANTIQUES);
+	const [products, setProducts] = useState(null);
+	const [search, setSearch] = useState('');
 
-	updateSearch(event) {
-		this.setState({ search: event.target.value.substr(0, 20) });
-	}
+	if (loading) return 'Loading...';
+	if (error) return `Error! ${error.message}`;
 
-	render() {
-		return (
-			<Aux>
-				<Cockpit
-					comics={this.state.comics}
-					search={this.state.search}
-					updateSearch={this.updateSearch.bind(this)}
-				/>
-			</Aux>
-		);
-	}
+	return (
+		<Aux>
+			<Cockpit
+				comics={data.products}
+				search={search}
+				updateSearch={updateSearch.bind(this)}
+			/>
+		</Aux>
+	);
 }
-
-export default App;
