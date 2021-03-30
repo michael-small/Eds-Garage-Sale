@@ -20,7 +20,7 @@ export default function Listings(props) {
 		<Aux>
 			<Grid container spacing={3} className='grid-container'>
 				{filteredComics.reverse().map((comic, index) => (
-					<Grid item xs={12} sm={3} key={index}>
+					<Grid item xs={12} sm={3} md={4} lg={2} key={index}>
 						<Card className='card'>
 							<CardMedia
 								className='card-img'
