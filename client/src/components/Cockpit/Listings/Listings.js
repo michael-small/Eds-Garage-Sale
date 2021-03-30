@@ -21,7 +21,7 @@ export default function Listings(props) {
 			<Grid container spacing={3} className='grid-container'>
 				{filteredComics.reverse().map((comic, index) => (
 					<Grid item xs={12} sm={3} md={4} lg={2} key={index}>
-						<Card className='card'>
+						<Card className='card' style={{ height: '100%' }}>
 							<CardMedia
 								className='card-img'
 								image={comic.photo.url}
@@ -33,6 +33,18 @@ export default function Listings(props) {
 								<Typography color='textSecondary' variant='h6'>
 									${comic.price}
 								</Typography>
+								{comic.description ? (
+									<Typography variant='subtitle1'>
+										{comic.description}
+									</Typography>
+								) : (
+									<Aux>
+										<br />
+										<Typography variant='caption'>
+											No description
+										</Typography>
+									</Aux>
+								)}
 							</CardContent>
 						</Card>
 					</Grid>

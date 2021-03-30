@@ -13,6 +13,7 @@ const GET_ANTIQUES = gql`
 			photo {
 				url
 			}
+			description
 		}
 	}
 `;
