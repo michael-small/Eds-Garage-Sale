@@ -17,10 +17,18 @@ export default function Listings(props) {
 		);
 	});
 	return (
-		<Aux>
-			<Grid container spacing={3} className='grid-container'>
+		<div>
+			<Grid container spacing={4} className='grid-container'>
 				{filteredComics.reverse().map((comic, index) => (
-					<Grid item xs={12} sm={3} md={4} lg={2} key={index}>
+					<Grid
+						item
+						xs={12}
+						sm={3}
+						md={4}
+						lg={3}
+						key={index}
+						align='center'
+					>
 						<Card className='card' style={{ height: '100%' }}>
 							<CardMedia
 								className='card-img'
@@ -50,6 +58,6 @@ export default function Listings(props) {
 					</Grid>
 				))}
 			</Grid>
-		</Aux>
+		</div>
 	);
 }
