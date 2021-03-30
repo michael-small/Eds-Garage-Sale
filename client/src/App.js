@@ -23,7 +23,6 @@ export default function App() {
 	};
 
 	const { loading, error, data } = useQuery(GET_ANTIQUES);
-	const [products, setProducts] = useState(null);
 	const [search, setSearch] = useState('');
 
 	if (loading) return 'Loading...';
