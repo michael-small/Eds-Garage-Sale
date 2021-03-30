@@ -1,8 +1,9 @@
 import React from 'react';
+import './Search.css';
 
 export default function Search(props) {
 	return (
-		<div>
+		<div className='body'>
 			<span>
 				<b>Search by name: </b>
 			</span>
