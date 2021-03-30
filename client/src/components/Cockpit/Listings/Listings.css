@@ -1,0 +1,18 @@
+.card {
+    max-width: 350px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
+    background-color: #fafafa;
+}
+
+.card-img {
+    height: 250px;
+    width: 250px;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 900px){
+    .card-img {
+        height: 150px;
+        width: 150px;
+    }
+
+}
