@@ -53,6 +53,11 @@ export default function Listings(props) {
 										</Typography>
 									</Aux>
 								)}
+								{comic.categories.map(({ name }, index) => (
+									<div key={index}>
+										<p>{name}</p>
+									</div>
+								))}
 							</CardContent>
 						</Card>
 					</Grid>
