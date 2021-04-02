@@ -10,7 +10,7 @@ export default function Cockpit(props) {
 			<div>
 				<h2>Total Items: {props.comics.length}</h2>
 			</div>
-			<Search search={props.search} updateSearch={props.updateSearch} />
+			{/* <Search search={props.search} updateSearch={props.updateSearch} /> */}
 			<Listings comics={props.comics} search={props.search} />{' '}
 		</div>
 	);

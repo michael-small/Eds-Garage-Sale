@@ -14,6 +14,9 @@ const GET_ANTIQUES = gql`
 				url
 			}
 			description
+			categories {
+				name
+			}
 		}
 	}
 `;
