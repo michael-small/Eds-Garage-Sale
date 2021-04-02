@@ -9,6 +9,20 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
+import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		display: 'flex',
+		justifyContent: 'center',
+		flexWrap: 'wrap',
+		'& > *': {
+			margin: theme.spacing(0.5),
+		},
+	},
+}));
 
 export default function Listings(props) {
 	const filteredComics = props.comics.filter((comic) => {
@@ -16,6 +30,9 @@ export default function Listings(props) {
 			comic.name.toLowerCase().indexOf(props.search.toLowerCase()) !== -1
 		);
 	});
+
+	const classes = useStyles();
+
 	return (
 		<div>
 			<Grid container spacing={4} className='grid-container'>
@@ -53,11 +70,16 @@ export default function Listings(props) {
 										</Typography>
 									</Aux>
 								)}
-								{comic.categories.map(({ name }, index) => (
-									<div key={index}>
-										<p>{name}</p>
-									</div>
-								))}
+								<div key={index} className={classes.root}>
+									{comic.categories.map(({ name }, index) => (
+										<Chip
+											key={index}
+											label={name}
+											color='primary'
+											size='small'
+										/>
+									))}
+								</div>
 							</CardContent>
 						</Card>
 					</Grid>
