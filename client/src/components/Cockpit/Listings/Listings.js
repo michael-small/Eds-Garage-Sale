@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -21,6 +22,19 @@ const useStyles = makeStyles((theme) => ({
 		'& > *': {
 			margin: theme.spacing(0.5),
 		},
+	},
+	themeColor: {
+		backgroundColor: theme.palette.primary.main,
+		padding: '8px',
+	},
+	themeText: {
+		color: theme.palette.primary.contrastText,
+	},
+	themeSecondary: {
+		backgroundColor: theme.palette.secondary.main,
+	},
+	grid: {
+		marginBottom: '8px',
 	},
 }));
 
@@ -35,7 +49,11 @@ export default function Listings(props) {
 
 	return (
 		<div>
-			<Grid container spacing={4} className='grid-container'>
+			<Grid
+				container
+				spacing={4}
+				className={clsx('grid-container', classes.grid)}
+			>
 				{filteredComics.reverse().map((comic, index) => (
 					<Grid
 						item
@@ -46,7 +64,10 @@ export default function Listings(props) {
 						key={index}
 						align='center'
 					>
-						<Card className='card' style={{ height: '100%' }}>
+						<Card
+							className={clsx('card', classes.themeColor)}
+							style={{ height: '100%' }}
+						>
 							<CardMedia
 								className='card-img'
 								image={comic.photo.url}
@@ -77,6 +98,7 @@ export default function Listings(props) {
 											label={name}
 											color='primary'
 											size='small'
+											className={classes.themeSecondary}
 										/>
 									))}
 								</div>

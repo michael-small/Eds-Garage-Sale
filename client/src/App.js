@@ -4,6 +4,9 @@ import Aux from './hoc/Aux';
 import './App.css';
 import { gql, useQuery } from '@apollo/client';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
 const GET_ANTIQUES = gql`
 	query GetAllAntiques {
 		products {
@@ -21,6 +24,23 @@ const GET_ANTIQUES = gql`
 	}
 `;
 
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			light: '#fdffff',
+			main: '#caebf2',
+			dark: '#99b9bf',
+			contrastText: 'rgba(0, 0, 0, 0.9)',
+		},
+		secondary: {
+			light: '#ff746a',
+			main: '#ff3b3f',
+			dark: '#c40017',
+			contrastText: 'rgba(0, 0, 0, 0.9)',
+		},
+	},
+});
+
 export default function App() {
 	const updateSearch = (event) => {
 		setSearch({ search: event.target.value.substr(0, 20) });
@@ -34,11 +54,13 @@ export default function App() {
 
 	return (
 		<Aux>
-			<Cockpit
-				comics={data.products}
-				search={search}
-				updateSearch={updateSearch.bind(this)}
-			/>
+			<ThemeProvider theme={theme}>
+				<Cockpit
+					comics={data.products}
+					search={search}
+					updateSearch={updateSearch.bind(this)}
+				/>
+			</ThemeProvider>
 		</Aux>
 	);
 }
