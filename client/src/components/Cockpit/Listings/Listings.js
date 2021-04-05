@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	themeSecondary: {
 		backgroundColor: theme.palette.secondary.main,
+		color: theme.palette.secondary.contrastText,
 	},
 	grid: {
 		marginBottom: '8px',
@@ -97,7 +98,7 @@ export default function Listings(props) {
 											key={index}
 											label={name}
 											color='primary'
-											size='small'
+											size='medium'
 											className={classes.themeSecondary}
 										/>
 									))}
