@@ -40,13 +40,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Listings(props) {
-	const filteredComics = props.comics.filter((comic) => {
-		return (
-			comic.name.toLowerCase().indexOf(props.search.toLowerCase()) !== -1
-		);
-	});
-
 	const classes = useStyles();
+
+	const comics = props.comics.slice();
 
 	return (
 		<div>
@@ -55,7 +51,7 @@ export default function Listings(props) {
 				spacing={4}
 				className={clsx('grid-container', classes.grid)}
 			>
-				{filteredComics.reverse().map((comic, index) => (
+				{comics.reverse().map((comic, index) => (
 					<Grid
 						item
 						xs={12}
