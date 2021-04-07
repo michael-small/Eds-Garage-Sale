@@ -23,7 +23,7 @@ const CssTextField = withStyles((theme) => ({
 			color: 'black',
 		},
 		'& .MuiInput-underline:after': {
-			borderBottomColor: 'black',
+			borderBottomColor: theme.palette.secondary.light,
 		},
 		'& .MuiOutlinedInput-root': {
 			'& fieldset': {
