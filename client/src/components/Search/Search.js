@@ -60,14 +60,16 @@ export default function Search(props) {
 				onChange={(event) => props.updateSearch(event.target.value)}
 			/>
 			<br />
-			<Button
-				className={classes.resetSearch}
-				variant='contained'
-				color='secondary'
-				size='small'
-			>
-				<CloseIcon onClick={() => props.updateSearch('')} />
-			</Button>{' '}
+			{props.search !== '' && (
+				<Button
+					className={classes.resetSearch}
+					variant='contained'
+					color='secondary'
+					size='small'
+				>
+					<CloseIcon onClick={() => props.updateSearch('')} />
+				</Button>
+			)}
 		</div>
 	);
 }
