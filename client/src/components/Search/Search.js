@@ -48,7 +48,7 @@ export default function Search(props) {
 				id='input-with-icon-textfield'
 				label='Search by item name'
 				type='text'
-				placeholder='tv'
+				placeholder='ex: tv, glass'
 				InputProps={{
 					endAdornment: (
 						<InputAdornment position='end'>
