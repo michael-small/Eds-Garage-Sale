@@ -48,12 +48,7 @@ const theme = createMuiTheme({
 });
 
 export default function App() {
-	const updateSearch = (event) => {
-		setSearch({ search: event.target.value.substr(0, 20) });
-	};
-
 	const { loading, error, data } = useQuery(GET_ANTIQUES);
-	const [search, setSearch] = useState('');
 
 	if (loading) return 'Loading...';
 	if (error) return `Error! ${error.message}`;
@@ -61,11 +56,7 @@ export default function App() {
 	return (
 		<Aux>
 			<ThemeProvider theme={theme}>
-				<Cockpit
-					comics={data.products}
-					search={search}
-					updateSearch={updateSearch.bind(this)}
-				/>
+				<Cockpit comics={data.products} />
 			</ThemeProvider>
 		</Aux>
 	);

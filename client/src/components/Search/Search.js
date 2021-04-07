@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Search.css';
 
 export default function Search(props) {
@@ -10,9 +10,12 @@ export default function Search(props) {
 			<input
 				type='text'
 				value={props.search}
-				onChange={props.updateSearch}
+				onChange={(event) => props.updateSearch(event.target.value)}
 			></input>
-			<button onClick={() => props.updateSearch} style={{ color: 'red' }}>
+			<button
+				onClick={() => props.updateSearch('')}
+				style={{ color: 'red' }}
+			>
 				X
 			</button>
 		</div>
