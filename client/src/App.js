@@ -16,7 +16,7 @@ const GET_ANTIQUES = gql`
 			photo {
 				url
 			}
-			description
+			shortDescription
 			categories {
 				name
 			}

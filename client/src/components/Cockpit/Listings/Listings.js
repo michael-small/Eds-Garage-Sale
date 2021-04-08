@@ -76,9 +76,9 @@ export default function Listings(props) {
 								<Typography color='textSecondary' variant='h6'>
 									${comic.price}
 								</Typography>
-								{comic.description ? (
+								{comic.shortDescription ? (
 									<Typography variant='subtitle1'>
-										{comic.description}
+										{comic.shortDescription}
 									</Typography>
 								) : (
 									<Aux>
