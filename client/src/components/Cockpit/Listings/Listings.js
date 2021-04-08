@@ -2,6 +2,7 @@ import React from 'react';
 import './Listings.css';
 import Aux from '../../../hoc/Aux';
 // import Listing from './Listing/Listing';
+import PublishPhoto from '../../../images/publish_photo.jpg';
 
 // MUI Components
 import Grid from '@material-ui/core/Grid';
@@ -65,10 +66,18 @@ export default function Listings(props) {
 							className={clsx('card', classes.themeColor)}
 							style={{ height: '100%' }}
 						>
-							<CardMedia
-								className='card-img'
-								image={comic.photo.url}
-							/>
+							{comic.photo !== null ? (
+								<CardMedia
+									className='card-img'
+									image={comic.photo.url}
+								/>
+							) : (
+								<CardMedia
+									className='card-img'
+									image={PublishPhoto}
+								/>
+							)}
+
 							<CardContent>
 								<Typography variant='h5'>
 									{comic.name}
