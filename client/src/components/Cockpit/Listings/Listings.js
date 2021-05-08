@@ -1,5 +1,6 @@
 import React from 'react';
 import Listing from './Listing/Listing';
+import { gql, useQuery } from '@apollo/client';
 
 // MUI Components
 import Grid from '@material-ui/core/Grid';
@@ -14,10 +15,32 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+const GET_ANTIQUES = gql`
+	query GetAllAntiques {
+		products {
+			id
+			price
+			name
+			photo {
+				url
+			}
+			shortDescription
+			categories {
+				name
+			}
+		}
+	}
+`;
+
 export default function Listings(props) {
 	const classes = useStyles();
 
-	const comics = props.comics.slice();
+	const { loading, error, data } = useQuery(GET_ANTIQUES);
+
+	if (loading) return 'Loading...';
+	if (error) return `Error! ${error.message}`;
+
+	// const comics = props.comics.slice();
 
 	return (
 		<div>
@@ -26,7 +49,7 @@ export default function Listings(props) {
 				spacing={4}
 				className={clsx('grid-container', classes.grid)}
 			>
-				{comics.reverse().map((comic, index) => (
+				{data.products.reverse().map((comic, index) => (
 					<Grid
 						item
 						xs={12}
