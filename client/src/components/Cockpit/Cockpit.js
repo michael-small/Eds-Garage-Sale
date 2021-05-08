@@ -12,34 +12,20 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const filterComics = (comics, searchQuery) => {
-	if (!searchQuery) {
-		return comics;
-	}
-
-	return comics.filter((comic) => {
-		const comicName = comic.name.toLowerCase();
-		return (
-			comicName.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
-		);
-	});
-};
-
 export default function Cockpit(props) {
 	const classes = useStyles();
 
-	const comics = props.comics;
 	const [searchQuery, setSearchQuery] = useState('');
-	const filteredComics = filterComics(comics, searchQuery);
 
 	return (
 		<div className={clsx('App', classes.background)}>
 			<h1>Our Unsold Stock</h1>
-			<div>
+			{/* TODO: Pass this length up from `Listings FC` */}
+			{/* <div>
 				<h2>Total Items: {props.comics.length}</h2>
-			</div>
+			</div> */}
 			<Search search={searchQuery} updateSearch={setSearchQuery} />
-			<Listings comics={filteredComics} />{' '}
+			<Listings comicsQuery={searchQuery} />{' '}
 		</div>
 	);
 }

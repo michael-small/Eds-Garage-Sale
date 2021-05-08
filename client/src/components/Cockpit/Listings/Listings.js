@@ -40,7 +40,24 @@ export default function Listings(props) {
 	if (loading) return 'Loading...';
 	if (error) return `Error! ${error.message}`;
 
-	// const comics = props.comics.slice();
+	const filterComics = (comics, searchQuery) => {
+		if (!searchQuery) {
+			return comics;
+		}
+
+		return comics.filter((comic) => {
+			const comicName = comic.name.toLowerCase();
+			return (
+				comicName.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
+				-1
+			);
+		});
+	};
+
+	const filteredComics = filterComics(
+		data.products.slice(),
+		props.comicsQuery
+	);
 
 	return (
 		<div>
@@ -49,7 +66,7 @@ export default function Listings(props) {
 				spacing={4}
 				className={clsx('grid-container', classes.grid)}
 			>
-				{data.products.reverse().map((comic, index) => (
+				{filteredComics.reverse().map((comic, index) => (
 					<Grid
 						item
 						xs={12}
