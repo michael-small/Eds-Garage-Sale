@@ -40,23 +40,23 @@ export default function Listings(props) {
 	if (loading) return 'Loading...';
 	if (error) return `Error! ${error.message}`;
 
-	const filterComics = (comics, searchQuery) => {
+	const filterListings = (listings, searchQuery) => {
 		if (!searchQuery) {
-			return comics;
+			return listings;
 		}
 
-		return comics.filter((comic) => {
-			const comicName = comic.name.toLowerCase();
+		return listings.filter((listing) => {
+			const listingName = listing.name.toLowerCase();
 			return (
-				comicName.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
+				listingName.toLowerCase().indexOf(searchQuery.toLowerCase()) !==
 				-1
 			);
 		});
 	};
 
-	const filteredComics = filterComics(
+	const filteredListings = filterListings(
 		data.products.slice(),
-		props.comicsQuery
+		props.listingsQuery
 	);
 
 	return (
@@ -66,7 +66,7 @@ export default function Listings(props) {
 				spacing={4}
 				className={clsx('grid-container', classes.grid)}
 			>
-				{filteredComics.reverse().map((comic, index) => (
+				{filteredListings.reverse().map((listing, index) => (
 					<Grid
 						item
 						xs={12}
@@ -76,7 +76,7 @@ export default function Listings(props) {
 						key={index}
 						align='center'
 					>
-						<Listing listing={comic} />
+						<Listing listing={listing} />
 					</Grid>
 				))}
 			</Grid>

@@ -22,10 +22,10 @@ export default function Cockpit(props) {
 			<h1>Our Unsold Stock</h1>
 			{/* TODO: Pass this length up from `Listings FC` */}
 			{/* <div>
-				<h2>Total Items: {props.comics.length}</h2>
+				<h2>Total Items: {props.listings.length}</h2>
 			</div> */}
 			<Search search={searchQuery} updateSearch={setSearchQuery} />
-			<Listings comicsQuery={searchQuery} />{' '}
+			<Listings listingsQuery={searchQuery} />{' '}
 		</div>
 	);
 }
