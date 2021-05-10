@@ -3,7 +3,7 @@
   padding: 1rem;
 }
 
-.Comics {
+.Listings {
   border: 2px solid black;
   margin: 0.5rem;
   width: 90%;
@@ -31,7 +31,7 @@
     float: left;
   }
 
-  .Comics {
+  .Listings {
     width: 30%;
   }
 

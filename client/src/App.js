@@ -1,28 +1,10 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import Cockpit from './components/Cockpit/Cockpit';
 import Aux from './hoc/Aux';
 import './App.css';
-import { gql, useQuery } from '@apollo/client';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-
-const GET_ANTIQUES = gql`
-	query GetAllAntiques {
-		products {
-			id
-			price
-			name
-			photo {
-				url
-			}
-			shortDescription
-			categories {
-				name
-			}
-		}
-	}
-`;
 
 const theme = createMuiTheme({
 	palette: {
@@ -48,15 +30,10 @@ const theme = createMuiTheme({
 });
 
 export default function App() {
-	const { loading, error, data } = useQuery(GET_ANTIQUES);
-
-	if (loading) return 'Loading...';
-	if (error) return `Error! ${error.message}`;
-
 	return (
 		<Aux>
 			<ThemeProvider theme={theme}>
-				<Cockpit comics={data.products} />
+				<Cockpit />
 			</ThemeProvider>
 		</Aux>
 	);
